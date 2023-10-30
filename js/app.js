@@ -44,12 +44,29 @@ function tramp(){
     console.log(beforeArray,"トランプの手札をランダムに配置しました。")
 
 
-    //ランダム並べたトランプの表示
+    //ランダム並べたトランプの表示準備
+    let field=$("#filed"); //fieldとidで書かれている部分を選択
+    console.log("fieldセレクタを選択しました!")
+    for(i=0;i<52;i++){
+        let creatediv=$("<div></div>") //新しくdivを作成
+        console.log("新しいdivを作成しました!");
+        creatediv.addClass("card back");
+        console.log("新しく作成したdivにcard backというclass名を付与しました")
+        creatediv.cardFace = afterArray[i];//プロパティとは定義された箱のことで、その箱にcardfaceという名前をつけている。また、afterArrayを代入している
+        console.log("cardFaceと定義したプロパティにafterArrayを代入しました")
+        // div.innerHTML="";
+        // console.log("divの中に空白を代入")
+        // div.onclick = turn;
+        creatediv.appendTo(field);
+        console.log("fieldの子要素にdivを追加")    
+    }
 
-
-
+    // 時間の設定
+    start_time=new Date() //newDateとは現在の時刻を取得できる
 
 }
+
+
 
 
 
