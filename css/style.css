@@ -1,0 +1,56 @@
+
+
+
+.wrap{
+    background-color: greenyellow;
+    width: 1200px;
+
+    /* ゲームタイトルのCSS */
+    & .game_title{
+        text-align: center;
+    }
+    
+    /* 動的に変化させる指標のCSS */
+    & .value{
+        text-align: center;
+        background-color: wheat;
+    }
+
+
+    /* トランプを表示させるフィールドCSS */
+    & #field{
+        text-align: center;
+    }
+
+
+
+    /* トランプの表のCSS */
+    .card{
+        width:60px;
+        height:90px;
+        border:1px solid;
+        float:left;
+        border-radius:7px;
+        text-align:center;
+        font-size:25px;
+        font-weight:bold;
+        line-height:90px;
+    }
+
+    /* トランプの裏のCSS */
+    .back{
+        background-image:url("img/tramp.jpeg");
+        background-size:cover;
+    }
+
+
+
+
+
+    /* リセットボタンのcss */
+    & .btn{
+        margin: 0 auto;
+        text-align: center;
+        /* background-color: aqua; */
+    }
+}

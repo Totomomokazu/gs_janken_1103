@@ -9,20 +9,26 @@
 <body>
 
     <div class="wrap">
-        <h2>神経衰弱ゲーム</h2>
-        <p id="time">経過時間</p>
-        <p id="count">試行回数</p>
-        <p id="point">一致組数</p>
-        <p id="zankaisu">残回数</p>
-        <!-- ここより上は各指標の表示 -->
+        <div class="game_title">
+            <h2>神経衰弱ゲーム</h2>
+        </div>
+
+        <div class="value">
+            <p id="time">経過時間：</p>
+            <p id="count">試行回数：</p>
+            <p id="point">一致組数：</p>
+            <p id="zankaisu">残回数：</p>
+        </div>
+        <!-- ここより上は各指標の表示★テーブル表示にしたほうが見やすいかも -->
 
 
         <!-- ここから下はトランプの表示するフィールド -->
-        <div id="field"></div>
+        <div id="field">トランプ表示位置</div>
 
 
-
-        <button>リセット</button>
+        <div class="btn">
+            <button>リセット</button>
+        </div>
     </div>
 
 

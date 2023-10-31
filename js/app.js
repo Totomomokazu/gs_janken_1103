@@ -5,15 +5,14 @@
 // https://kusakarism.info/?p=11646
 
 // 使用する変数の宣言
-let start_time; //ゲームを開始したときの時刻
-let now_time; //現在の時刻
+let starttime; //ゲームを開始したときの時刻
 let count=0;//試行した回数
 let match_count=0;//一致した回数
 let remaining_count = 10; //試行できる回数
 
 
-starttime=("今や明日");
-console.log(starttime)
+test=("今や明日");
+console.log(test)
 
 
 // トランプの絵札の作成
@@ -50,7 +49,7 @@ function tramp(){
     for(i=0;i<52;i++){
         let creatediv=$("<div></div>") //新しくdivを作成
         console.log("新しいdivを作成しました!");
-        creatediv.addClass("card back");
+        creatediv.addClass("card back");//cardというクラスとbackというクラス名を作っている。クラス名を入れることで2つのクラスを作れるらしい
         console.log("新しく作成したdivにcard backというclass名を付与しました")
         creatediv.cardFace = afterArray[i];//プロパティとは定義された箱のことで、その箱にcardfaceという名前をつけている。また、afterArrayを代入している
         console.log("cardFaceと定義したプロパティにafterArrayを代入しました")
@@ -58,14 +57,22 @@ function tramp(){
         // console.log("divの中に空白を代入")
         // div.onclick = turn;
         creatediv.appendTo(field);
-        console.log("fieldの子要素にdivを追加")    
+        console.log("fieldの子要素にdivを追加") 
+           
     }
 
     // 時間の設定
-    start_time=new Date() //newDateとは現在の時刻を取得できる
-
+    starttime=new Date() //newDateとは現在の時刻を取得できる
 }
 
+
+function time_count(){
+    let nowtime=new Date();//現在の時間取得
+    let time=Math.floor((nowtime-starttime)/1000);
+
+
+
+}
 
 
 
