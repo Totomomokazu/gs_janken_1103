@@ -39,11 +39,12 @@
         font-size:25px;
         font-weight:bold;
         line-height:90px;
+        background-color: azure;
     }
 
-    /* トランプの裏のCSS */
+    /* トランプの裏のCSS。cardとbackというclassを割り当てているが、turn関数が実行されない限りcardクラスは表示されない。よって、backクラスのbackground-imageが適用され、トランプの裏が見えている状態になっている*/
     .back{
-        background-image:url("img/tramp.jpeg");
+        background-image:url("../img/tramp.jpeg"); /* ../でcssフォルダの親ディレクトリに行き、imgフォルダにいき、画像を参照する */
         background-size:cover;
     }
 
