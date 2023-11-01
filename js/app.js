@@ -6,6 +6,7 @@
 
 // 使用する変数の宣言
 let starttime; //ゲームを開始したときの時刻
+let timer_function;//ゲーム開始から現在の時刻まで計測する変数
 let count=0;//試行した回数
 let match_count=0;//一致した回数
 let remaining_count = 10; //試行できる回数
@@ -44,7 +45,7 @@ function tramp(){
 
 
     //ランダム並べたトランプの表示準備
-    let field=$("#filed"); //fieldとidで書かれている部分を選択
+    let field=$("#field"); //fieldとidで書かれている部分を選択
     console.log("fieldセレクタを選択しました!")
     for(i=0;i<52;i++){
         let creatediv=$("<div></div>") //新しくdivを作成
@@ -53,26 +54,30 @@ function tramp(){
         console.log("新しく作成したdivにcard backというclass名を付与しました")
         creatediv.cardFace = afterArray[i];//プロパティとは定義された箱のことで、その箱にcardfaceという名前をつけている。また、afterArrayを代入している
         console.log("cardFaceと定義したプロパティにafterArrayを代入しました")
-        // div.innerHTML="";
+        // creatediv.innerHTML="";
         // console.log("divの中に空白を代入")
-        // div.onclick = turn;
+        // creatediv.onclick = turn;
         creatediv.appendTo(field);
         console.log("fieldの子要素にdivを追加") 
-           
     }
+
 
     // 時間の設定
     starttime=new Date() //newDateとは現在の時刻を取得できる
+    timer_function= setInterval(time_count,1000); //1000m秒（1秒）ごとに関数を実行。setIntervalは決められた間隔ごとに指定した関数を実行するjsの組み込み関数らしい
+    console.log(time)
 }
 
 
-function time_count(){
+function time_count(){ //時間を計測する関数
     let nowtime=new Date();//現在の時間取得
     let time=Math.floor((nowtime-starttime)/1000);
-
-
-
+    // console.log(nowtime)
+    let timer = "経過時間: " + time + "秒" ;
+    $("#time").html(timer);
 }
+
+
 
 
 

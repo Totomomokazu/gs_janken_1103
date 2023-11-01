@@ -4,6 +4,7 @@
 .wrap{
     background-color: greenyellow;
     width: 1200px;
+    margin: 0 auto;
 
     /* ゲームタイトルのCSS */
     & .game_title{
@@ -20,6 +21,9 @@
     /* トランプを表示させるフィールドCSS */
     & #field{
         text-align: center;
+        width: 100%;
+        height: 280px;
+        background-color: aqua;
     }
 
 
