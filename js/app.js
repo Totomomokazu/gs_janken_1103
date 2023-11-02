@@ -12,7 +12,7 @@ let firstselect=true;//最初に選んだカードを選択
 let firstCard; //最初に選択したカードを代入するための変数
 let count=0;//試行した回数
 let match_count=0;//一致した回数
-let remaining_count = 10; //試行できる回数
+let remaining_count = 100; //試行できる回数
 
 
 window.onload = tramp(); //window.onloadでページ読み込み時に自動的に指定した関数が実行されるらしい
@@ -85,6 +85,11 @@ function turn(e){ //引数をeとする。カードがクリックされた時�
     if(settimer!==null){//settimerに値が入っていれば実行できないように制御する関数
         return
     }
+
+    if(remaining_count<1){ //remaining_countが0以下であれば実行できない
+        return
+    }
+
     let choiceCard=e.target; //クリックされたelementの情報がchoicecardに代入される
     if(choiceCard.innerHTML===""){
         choiceCard.className= "card"; //class名をbackからcardに変更
@@ -99,6 +104,10 @@ function turn(e){ //引数をeとする。カードがクリックされた時�
     } else{ //2回目選択したカードの処理
         count ++
         $("#count").html("試行回数："+count);
+        remaining_count --
+        $("#zankaisu").html("残回数："+remaining_count);
+        
+
         if(firstCard.cardFace.substr(-1)===choiceCard.cardFace.substr(-1)){ //1回目に選択したカードの後ろの文字と2回目に選択したカードの後ろの文字が一致した場合
             match_count ++
             $("#point").html("一致組数："+match_count)
