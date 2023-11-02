@@ -7,14 +7,13 @@
 // 使用する変数の宣言
 let starttime; //ゲームを開始したときの時刻
 let timer_function;//ゲーム開始から現在の時刻まで計測する変数
+let settimer=null;//turnの関数でカードが不一致だったときのコールバックまでの値を入れる関数
 let firstselect=true;//最初に選んだカードを選択
-let firstCard;
+let firstCard; //最初に選択したカードを代入するための変数
 let count=0;//試行した回数
 let match_count=0;//一致した回数
 let remaining_count = 10; //試行できる回数
 
-// test=("今や明日");
-// console.log(test)
 
 window.onload = tramp(); //window.onloadでページ読み込み時に自動的に指定した関数が実行されるらしい
 
@@ -83,6 +82,9 @@ function time_count(){ //時間を計測する関数
 }
 
 function turn(e){ //引数をeとする。カードがクリックされた時のイベントで関数が実行される
+    if(settimer!==null){//settimerに値が入っていれば実行できないように制御する関数
+        return
+    }
     let choiceCard=e.target; //クリックされたelementの情報がchoicecardに代入される
     if(choiceCard.innerHTML===""){
         choiceCard.className= "card"; //class名をbackからcardに変更
@@ -100,14 +102,25 @@ function turn(e){ //引数をeとする。カードがクリックされた時�
         if(firstCard.cardFace.substr(-1)===choiceCard.cardFace.substr(-1)){ //1回目に選択したカードの後ろの文字と2回目に選択したカードの後ろの文字が一致した場合
             match_count ++
             $("#point").html("一致組数："+match_count)
+
             choiceCard.className="card comp";
             firstCard.className="card comp"
+
         }else{ //2回目に選択したカードが一致しない場合
-            choiceCard.className="card back"
-            firstCard.className="card back"
-            choiceCard.innerHTML = "";
-            firstCard.innerHTML = "";            
+            settimer=setTimeout(function(){
+                choiceCard.className="card back"
+                firstCard.className="card back"
+                choiceCard.innerHTML = "";
+                firstCard.innerHTML = "";
+                settimer=null
+                },700)
         }
         firstselect=true
     }
 }
+
+$(document).ready(function() {
+    $("#reset").click(function() {
+        location.reload();  // ブラウザのリロード
+    });
+});

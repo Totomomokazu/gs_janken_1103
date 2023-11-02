@@ -1,20 +1,26 @@
 
+body{
+    /* background-image: url("../img/background-img2.png"); */
+    background-color:rgb(193, 238, 203);
+}
+
+
 
 
 .wrap{
-    background-color: greenyellow;
+    /* background-color: greenyellow; */
     width: 1200px;
-    margin: 0 auto;
-
+    margin:auto;
     /* ゲームタイトルのCSS */
     & .game_title{
         text-align: center;
+        /* color: white; */
     }
     
     /* 動的に変化させる指標のCSS */
     & .value{
         text-align: center;
-        background-color: wheat;
+        /* background-color: wheat; */
     }
 
 
@@ -22,8 +28,10 @@
     & #field{
         text-align: center;
         width: 100%;
-        height: 280px;
-        background-color: aqua;
+        height: 450px;
+        /* background-color: aqua; */
+        display: grid;/* グリッドベースという2次元の配列に変換する */
+        grid-template-columns: repeat(13, 1fr); /* グリッドの数列と行数を指定 */
     }
 
 
@@ -39,7 +47,7 @@
         font-size:25px;
         font-weight:bold;
         line-height:90px;
-        background-color: azure;
+        background-color: wheat;
     }
 
     /* トランプの裏のCSS。cardとbackというclassを割り当てているが、turn関数が実行されない限りcardクラスは表示されない。よって、backクラスのbackground-imageが適用され、トランプの裏が見えている状態になっている*/
